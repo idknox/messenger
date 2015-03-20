@@ -2,5 +2,9 @@
 
 Basic Rails Messenger App
 
+Email-Like messaging system. Currently supports messaging between two users.
 
+Includes user creation and authentication.
+
+Instructions: rake db:create, db:migrate
 

@@ -5,9 +5,6 @@ class ConversationsController < ApplicationController
   end
 
   def create
-    puts '*' * 80
-    puts params
-    puts '*' * 80
     receiver = User.find_by(name: params[:message][:conversation][:receiver])
     conversation = Conversation.create
     UserConversation.create(user_id: current_user.id, conversation_id: conversation.id)
@@ -19,7 +16,4 @@ class ConversationsController < ApplicationController
       render :new
     end
   end
-
-  private
-
 end
