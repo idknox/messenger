@@ -1,5 +1,5 @@
 class Conversation < ActiveRecord::Base
-  belongs_to :sender, class_name: "User"
-  belongs_to :receiver, class_name: "User"
+  has_many :users, through: :user_conversations
   has_many :messages
+
 end

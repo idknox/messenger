@@ -1,3 +1,5 @@
+<h1>Welcome, <%= current_user.name %></h1>
+
 <%= link_to 'Start a new conversation', new_user_conversation_path(current_user.id) %>
 <%= link_to 'Logout', signout_path %>
 <h2>Conversations</h2>
@@ -5,17 +7,17 @@
 
   <% @conversations.each do |conversation| %>
     <li>
-      Conversation between <%= "#{conversation.sender.name} and #{conversation.receiver.name}" %>
+      Conversation
     </li>
     <ul>
-      <% conversation.messages.each do |message| %>
+      <% conversation.conversation.messages.each do |message| %>
         <li>
           <b>From <%= message.author.name %></b>
           <%= message.body %>
         </li>
       <% end %>
     </ul>
-    <%= form_for @message, url: user_conversation_messages_path(current_user.id, conversation.id) do |f| %>
+    <%= form_for @message, url: user_conversation_messages_path(current_user.id, conversation.conversation.id) do |f| %>
       <%= f.text_area :body %>
       <%= f.submit 'Reply' %>
     <% end %>
